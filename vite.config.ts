@@ -4,5 +4,6 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/mui-rfs-playground/',
+  // Use a relative base so the build works regardless of repo name / path casing
+  base: './',
 })
