@@ -190,7 +190,7 @@ export default function App() {
             </Typography>
             <Slider
               min={1}
-              max={6}
+              max={10}
               step={1}
               value={factor}
               onChange={(_, v) => setFactor(v as number)}
