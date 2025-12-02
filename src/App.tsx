@@ -190,8 +190,8 @@ export default function App() {
             </Typography>
             <Slider
               min={1}
-              max={8}
-              step={0.1}
+              max={10}
+              step={1}
               value={factor}
               onChange={(_, v) => setFactor(v as number)}
               aria-label="factor"
