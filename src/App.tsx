@@ -223,6 +223,7 @@ export default function App() {
                 label="Base Size"
                 onChange={(e) => setBaseFontSize(e.target.value as number)}
               >
+                <MenuItem value={10}>10px</MenuItem>
                 <MenuItem value={12}>12px</MenuItem>
                 <MenuItem value={14}>14px</MenuItem>
               </Select>
