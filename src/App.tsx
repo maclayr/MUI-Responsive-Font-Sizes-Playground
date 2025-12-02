@@ -23,11 +23,10 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 // Your assumptions
 const fontFamily =
   '"IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
-const modularRatio = 1.2;
 
 // Build the base theme (before responsiveFontSizes)
-// Accept a fontFamily and htmlFontSize so themes can be rebuilt when the user switches fonts or base size
-function buildBaseTheme(selectedFont: string = fontFamily, baseFontSize: number = 12) {
+// Accept a fontFamily, htmlFontSize, and modularRatio so themes can be rebuilt when the user switches fonts, base size, or ratio
+function buildBaseTheme(selectedFont: string = fontFamily, baseFontSize: number = 12, modularRatio: number = 1.2) {
   return createTheme({
     cssVariables: true, // easier to inspect generated CSS
     breakpoints: {
@@ -154,11 +153,12 @@ export default function App() {
   const [disableAlign, setDisableAlign] = React.useState(false);
   const [includeXl, setIncludeXl] = React.useState(true);
   const [baseFontSize, setBaseFontSize] = React.useState(12);
+  const [modularRatio, setModularRatio] = React.useState(1.2);
   const vw = useViewportWidth();
 
   // Build theme reactively and rebuild when the selected font changes
   const theme = React.useMemo(() => {
-    let base = buildBaseTheme(fonts[selectedFont], baseFontSize);
+    let base = buildBaseTheme(fonts[selectedFont], baseFontSize, modularRatio);
     base = responsiveFontSizes(base, {
       breakpoints: includeXl ? ['sm', 'md', 'lg', 'xl'] : ['sm', 'md', 'lg'],
       factor,
@@ -166,7 +166,7 @@ export default function App() {
       variants, // scale all listed variants
     });
     return base;
-  }, [factor, disableAlign, includeXl, selectedFont, baseFontSize]);
+  }, [factor, disableAlign, includeXl, selectedFont, baseFontSize, modularRatio]);
 
   const bp = theme.breakpoints.values;
   const currentBp =
@@ -197,6 +197,19 @@ export default function App() {
               aria-label="factor"
             />
           </Box>
+          <Box sx={{ width: 260 }}>
+            <Typography variant="caption" color="text.secondary">
+              modular ratio ({modularRatio.toFixed(2)})
+            </Typography>
+            <Slider
+              min={1.0}
+              max={2.0}
+              step={0.05}
+              value={modularRatio}
+              onChange={(_, v) => setModularRatio(v as number)}
+              aria-label="modular ratio"
+            />
+          </Box>
           <Box sx={{ width: 220 }}>
             <FormControl fullWidth>
               <InputLabel id="font-select-label">Font</InputLabel>
@@ -223,6 +236,7 @@ export default function App() {
                 label="Base Size"
                 onChange={(e) => setBaseFontSize(e.target.value as number)}
               >
+                <MenuItem value={8}>8px</MenuItem>
                 <MenuItem value={10}>10px</MenuItem>
                 <MenuItem value={12}>12px</MenuItem>
                 <MenuItem value={14}>14px</MenuItem>
