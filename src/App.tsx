@@ -150,7 +150,7 @@ export default function App() {
     document.documentElement.style.setProperty('--app-font', fonts[selectedFont]);
   }, [selectedFont]);
 
-  const [factor, setFactor] = React.useState(8);
+  const [factor, setFactor] = React.useState(2);
   const [disableAlign, setDisableAlign] = React.useState(false);
   const [includeXl, setIncludeXl] = React.useState(true);
   const [baseFontSize, setBaseFontSize] = React.useState(12);
@@ -190,7 +190,7 @@ export default function App() {
             </Typography>
             <Slider
               min={1}
-              max={10}
+              max={6}
               step={1}
               value={factor}
               onChange={(_, v) => setFactor(v as number)}
