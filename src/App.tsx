@@ -150,7 +150,7 @@ export default function App() {
     document.documentElement.style.setProperty('--app-font', fonts[selectedFont]);
   }, [selectedFont]);
 
-  const [factor, setFactor] = React.useState(4);
+  const [factor, setFactor] = React.useState(8);
   const [disableAlign, setDisableAlign] = React.useState(false);
   const [includeXl, setIncludeXl] = React.useState(true);
   const [baseFontSize, setBaseFontSize] = React.useState(12);
