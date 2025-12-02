@@ -204,7 +204,7 @@ export default function App() {
             <Slider
               min={1.0}
               max={2.0}
-              step={0.05}
+              step={0.01}
               value={modularRatio}
               onChange={(_, v) => setModularRatio(v as number)}
               aria-label="modular ratio"
