@@ -23,7 +23,7 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 // Your assumptions
 const fontFamily =
   '"IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
-const modularRatio = 1.2;
+const modularRatio = 1.33;
 
 // Build the base theme (before responsiveFontSizes)
 // Accept a fontFamily and htmlFontSize so themes can be rebuilt when the user switches fonts or base size
