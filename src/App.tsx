@@ -26,7 +26,7 @@ const fontFamily =
 
 // Build the base theme (before responsiveFontSizes)
 // Accept a fontFamily, htmlFontSize, and modularRatio so themes can be rebuilt when the user switches fonts, base size, or ratio
-function buildBaseTheme(selectedFont: string = fontFamily, baseFontSize: number = 12, modularRatio: number = 1.2) {
+function buildBaseTheme(selectedFont: string = fontFamily, baseFontSize: number = 16, modularRatio: number = 1.2) {
   return createTheme({
     cssVariables: true, // easier to inspect generated CSS
     breakpoints: {
@@ -240,6 +240,7 @@ export default function App() {
                 <MenuItem value={10}>10px</MenuItem>
                 <MenuItem value={12}>12px</MenuItem>
                 <MenuItem value={14}>14px</MenuItem>
+                <MenuItem value={16}>16px</MenuItem>
               </Select>
             </FormControl>
           </Box>
