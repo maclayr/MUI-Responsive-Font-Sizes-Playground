@@ -36,15 +36,17 @@ function buildBaseTheme(selectedFont: string = fontFamily, baseFontSize: number 
       htmlFontSize: baseFontSize,
       fontFamily: selectedFont,
       // Body
-      body1: { fontSize: '.75rem', lineHeight: 1.6 },
-      body2: { fontSize: `${0.875}rem`, lineHeight: 1.6 }, // ~12.25px
+      body1: { fontSize: 14px, lineHeight: 1.6 },
+      body2: { fontSize: 12px, lineHeight: 1.6 }, // ~12.25px
       // Headings via 1.20 modular scale
-      h6: { fontSize: `${1 * modularRatio}rem`, fontWeight: 600, lineHeight: 1.3 },
-      h5: { fontSize: `${Math.pow(modularRatio, 2)}rem`, fontWeight: 600, lineHeight: 1.25 },
-      h4: { fontSize: `${Math.pow(modularRatio, 3)}rem`, fontWeight: 600, lineHeight: 1.2 },
-      h3: { fontSize: `${Math.pow(modularRatio, 4)}rem`, fontWeight: 700, lineHeight: 1.15 },
-      h2: { fontSize: `${Math.pow(modularRatio, 5)}rem`, fontWeight: 700, lineHeight: 1.1 },
-      h1: { fontSize: `${Math.pow(modularRatio, 6)}rem`, fontWeight: 700, lineHeight: 1.05 },
+      subtitle1: { fontSize: `${Math.pow(modularRatio, 0)}rem`, fontWeight: 600, lineHeight: 1.4, letterSpacing: '0.009em'},
+      subtitle2: { fontSize: `${Math.pow(modularRatio, 1)}rem`, fontWeight: 600, lineHeight: 1.35, letterSpacing: '0.006em' },
+      h6: { fontSize: `${1 * modularRatio}rem`, fontWeight: 600, lineHeight: 1.3, letterSpacing: '0.009em' },
+      h5: { fontSize: `${Math.pow(modularRatio, 2)}rem`, fontWeight: 700, lineHeight: 1.25, letterSpacing: '0em' },
+      h4: { fontSize: `${Math.pow(modularRatio, 3)}rem`, fontWeight: 600, lineHeight: 1.2, letterSpacing: '0.016em' },
+      h3: { fontSize: `${Math.pow(modularRatio, 4)}rem`, fontWeight: 700, lineHeight: 1.15, letterSpacing: '0em' },
+      h2: { fontSize: `${Math.pow(modularRatio, 5)}rem`, fontWeight: 600, lineHeight: 1.1, letterSpacing: '-0.031em' },
+      h1: { fontSize: `${Math.pow(modularRatio, 6)}rem`, fontWeight: 600, lineHeight: 1.05, letterSpacing; '-0.094em' },
       // Labels
       button: { fontSize: '1rem', fontWeight: 500, letterSpacing: '0.02em', textTransform: 'none', lineHeight: 1.2 },
       caption: { fontSize: `${0.75}rem`, lineHeight: 1.4, letterSpacing: '0.01em' },
@@ -209,7 +211,7 @@ export default function App() {
             <Slider
               min={1.0}
               max={2.0}
-              step={0.01}
+              step={0.001}
               value={modularRatio}
               onChange={(_, v) => setModularRatio(v as number)}
               aria-label="modular ratio"
