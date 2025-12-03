@@ -20,6 +20,7 @@ import {
   Link,
   IconButton,
   Collapse,
+  TextField,
 } from '@mui/material';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
@@ -235,17 +236,33 @@ function VariantRow({
         <Box sx={{ width: 12 }} />
         <Box sx={{ flex: 1, minWidth: 180 }}>
           <Typography variant="caption" color="text.secondary" sx={{ fontSize: '10px' }}>
-            Letter Spacing: {letterSpacing.toFixed(3)}em
+            Letter Spacing
           </Typography>
-          <Slider
-            min={-0.2}
-            max={0.2}
-            step={0.001}
-            value={letterSpacing}
-            onChange={(_, v) => onLetterSpacingChange(v as number)}
-            size="small"
-            aria-label="letter spacing"
-          />
+          <Stack direction="row" spacing={1} alignItems="center">
+            <Slider
+              min={-0.2}
+              max={0.2}
+              step={0.001}
+              value={letterSpacing}
+              onChange={(_, v) => onLetterSpacingChange(v as number)}
+              size="small"
+              aria-label="letter spacing"
+              sx={{ flex: 1 }}
+            />
+            <TextField
+              size="small"
+              type="number"
+              value={letterSpacing.toFixed(3)}
+              onChange={(e) => {
+                const val = parseFloat(e.target.value);
+                if (!isNaN(val) && val >= -0.2 && val <= 0.2) {
+                  onLetterSpacingChange(val);
+                }
+              }}
+              slotProps={{ htmlInput: { min: -0.2, max: 0.2, step: 0.001 } }}
+              sx={{ width: 70 }}
+            />
+          </Stack>
         </Box>
       </Box>
 
@@ -269,17 +286,33 @@ function VariantRow({
           </FormControl>
           <Box>
             <Typography variant="caption" color="text.secondary" sx={{ fontSize: '10px' }}>
-              Letter Spacing: {letterSpacing.toFixed(3)}em
+              Letter Spacing
             </Typography>
-            <Slider
-              min={-0.2}
-              max={0.2}
-              step={0.001}
-              value={letterSpacing}
-              onChange={(_, v) => onLetterSpacingChange(v as number)}
-              size="small"
-              aria-label="letter spacing"
-            />
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Slider
+                min={-0.2}
+                max={0.2}
+                step={0.001}
+                value={letterSpacing}
+                onChange={(_, v) => onLetterSpacingChange(v as number)}
+                size="small"
+                aria-label="letter spacing"
+                sx={{ flex: 1 }}
+              />
+              <TextField
+                size="small"
+                type="number"
+                value={letterSpacing.toFixed(3)}
+                onChange={(e) => {
+                  const val = parseFloat(e.target.value);
+                  if (!isNaN(val) && val >= -0.2 && val <= 0.2) {
+                    onLetterSpacingChange(val);
+                  }
+                }}
+                slotProps={{ htmlInput: { min: -0.2, max: 0.2, step: 0.001 } }}
+                sx={{ width: 70 }}
+              />
+            </Stack>
           </Box>
         </Stack>
       </Collapse>
@@ -389,29 +422,61 @@ export default function App() {
         <Stack direction="row" alignItems="center" sx={{ my: 2, flexWrap: 'wrap', justifyContent: 'flex-start', gap: 3 }}>
           <Box sx={{ flex: 1, minWidth: "150px" }}>
             <Typography variant="label" color="text.secondary">
-              Factor ({factor.toFixed(1)})
+              Factor
             </Typography>
-            <Slider
-              min={1}
-              max={8}
-              step={.1}
-              value={factor}
-              onChange={(_, v) => setFactor(v as number)}
-              aria-label="factor"
-            />
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Slider
+                min={1}
+                max={8}
+                step={.1}
+                value={factor}
+                onChange={(_, v) => setFactor(v as number)}
+                aria-label="factor"
+                sx={{ flex: 1 }}
+              />
+              <TextField
+                size="small"
+                type="number"
+                value={factor.toFixed(1)}
+                onChange={(e) => {
+                  const val = parseFloat(e.target.value);
+                  if (!isNaN(val) && val >= 1 && val <= 8) {
+                    setFactor(val);
+                  }
+                }}
+                slotProps={{ htmlInput: { min: 1, max: 8, step: 0.1 } }}
+                sx={{ width: 70 }}
+              />
+            </Stack>
           </Box>
           <Box sx={{ flex: 1, minWidth: "150px" }}>
             <Typography variant="label" color="text.secondary">
-              Modular Ratio ({modularRatio.toFixed(2)})
+              Modular Ratio
             </Typography>
-            <Slider
-              min={1.0}
-              max={2.0}
-              step={0.01}
-              value={modularRatio}
-              onChange={(_, v) => setModularRatio(v as number)}
-              aria-label="modular ratio"
-            />
+            <Stack direction="row" spacing={1} alignItems="center">
+              <Slider
+                min={1.0}
+                max={2.0}
+                step={0.01}
+                value={modularRatio}
+                onChange={(_, v) => setModularRatio(v as number)}
+                aria-label="modular ratio"
+                sx={{ flex: 1 }}
+              />
+              <TextField
+                size="small"
+                type="number"
+                value={modularRatio.toFixed(2)}
+                onChange={(e) => {
+                  const val = parseFloat(e.target.value);
+                  if (!isNaN(val) && val >= 1.0 && val <= 2.0) {
+                    setModularRatio(val);
+                  }
+                }}
+                slotProps={{ htmlInput: { min: 1.0, max: 2.0, step: 0.01 } }}
+                sx={{ width: 70 }}
+              />
+            </Stack>
           </Box>
           <Box sx={{ flex: 1, minWidth: "150px" }}>
             <FormControl fullWidth>
