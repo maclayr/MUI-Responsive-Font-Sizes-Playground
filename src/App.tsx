@@ -156,6 +156,11 @@ export default function App() {
   const [modularRatio, setModularRatio] = React.useState(1.20);
   const vw = useViewportWidth();
 
+  // Set the actual base font size on the html element
+  React.useEffect(() => {
+    document.documentElement.style.fontSize = `${baseFontSize}px`;
+  }, [baseFontSize]);
+
   // Build theme reactively and rebuild when the selected font changes
   const theme = React.useMemo(() => {
     let base = buildBaseTheme(fonts[selectedFont], baseFontSize, modularRatio);
