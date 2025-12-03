@@ -268,7 +268,7 @@ function VariantRow({
               }}
               onBlur={() => setLetterSpacingInput(letterSpacing.toFixed(3))}
               slotProps={{ htmlInput: { min: -0.2, max: 0.2, step: 0.001 } }}
-              sx={{ width: 70 }}
+              sx={{ width: 100 }}
             />
           </Stack>
         </Box>
@@ -320,7 +320,7 @@ function VariantRow({
                 }}
                 onBlur={() => setLetterSpacingInput(letterSpacing.toFixed(3))}
                 slotProps={{ htmlInput: { min: -0.2, max: 0.2, step: 0.001 } }}
-                sx={{ width: 70 }}
+                sx={{ width: 100 }}
               />
             </Stack>
           </Box>
@@ -502,7 +502,7 @@ export default function App() {
               />
             </Stack>
           </Box>
-          <Box sx={{ flex: 1, minWidth: "150px" }}>
+          <Box sx={{ flex: 0.5, minWidth: "150px" }}>
             <FormControl fullWidth>
               <InputLabel id="font-select-label" sx={{ typography: 'label'}}>Font</InputLabel>
               <Select
@@ -519,7 +519,7 @@ export default function App() {
               </Select>
             </FormControl>
           </Box>
-          <Box sx={{ flex: 1, minWidth: "150px" }}>
+          <Box sx={{ flex: 0.4, minWidth: "100px" }}>
             <FormControl fullWidth>
               <InputLabel id="base-fontsize-label" sx={{ typography: 'label'}}>Base Size</InputLabel>
               <Select
