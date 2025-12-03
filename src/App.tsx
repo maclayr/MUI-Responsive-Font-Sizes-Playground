@@ -26,7 +26,7 @@ const fontFamily =
 
 // Build the base theme (before responsiveFontSizes)
 // Accept a fontFamily, htmlFontSize, and modularRatio so themes can be rebuilt when the user switches fonts, base size, or ratio
-function buildBaseTheme(selectedFont: string = fontFamily, baseFontSize: number = 14, modularRatio: number = 1.25) {
+function buildBaseTheme(selectedFont: string = fontFamily, baseFontSize: number = 10, modularRatio: number = 1.25) {
   return createTheme({
     cssVariables: true, // easier to inspect generated CSS
     breakpoints: {
