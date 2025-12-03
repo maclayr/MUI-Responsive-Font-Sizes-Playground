@@ -149,11 +149,11 @@ export default function App() {
     document.documentElement.style.setProperty('--app-font', fonts[selectedFont]);
   }, [selectedFont]);
 
-  const [factor, setFactor] = React.useState(2);
+  const [factor, setFactor] = React.useState(2.00);
   const [disableAlign, setDisableAlign] = React.useState(false);
   const [includeXl, setIncludeXl] = React.useState(true);
   const [baseFontSize, setBaseFontSize] = React.useState(12);
-  const [modularRatio, setModularRatio] = React.useState(1.2);
+  const [modularRatio, setModularRatio] = React.useState(1.20);
   const vw = useViewportWidth();
 
   // Build theme reactively and rebuild when the selected font changes
