@@ -177,6 +177,12 @@ function VariantRow({
   const ref = React.useRef<HTMLSpanElement>(null);
   const px = useComputedPx(ref);
   const [expanded, setExpanded] = React.useState(false);
+  const [letterSpacingInput, setLetterSpacingInput] = React.useState(letterSpacing.toFixed(3));
+
+  // Sync input when letterSpacing changes from outside (e.g., slider)
+  React.useEffect(() => {
+    setLetterSpacingInput(letterSpacing.toFixed(3));
+  }, [letterSpacing]);
 
   const fontWeightOptions = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
@@ -252,13 +258,15 @@ function VariantRow({
             <TextField
               size="small"
               type="number"
-              value={letterSpacing.toFixed(3)}
+              value={letterSpacingInput}
               onChange={(e) => {
+                setLetterSpacingInput(e.target.value);
                 const val = parseFloat(e.target.value);
                 if (!isNaN(val) && val >= -0.2 && val <= 0.2) {
                   onLetterSpacingChange(val);
                 }
               }}
+              onBlur={() => setLetterSpacingInput(letterSpacing.toFixed(3))}
               slotProps={{ htmlInput: { min: -0.2, max: 0.2, step: 0.001 } }}
               sx={{ width: 70 }}
             />
@@ -302,13 +310,15 @@ function VariantRow({
               <TextField
                 size="small"
                 type="number"
-                value={letterSpacing.toFixed(3)}
+                value={letterSpacingInput}
                 onChange={(e) => {
+                  setLetterSpacingInput(e.target.value);
                   const val = parseFloat(e.target.value);
                   if (!isNaN(val) && val >= -0.2 && val <= 0.2) {
                     onLetterSpacingChange(val);
                   }
                 }}
+                onBlur={() => setLetterSpacingInput(letterSpacing.toFixed(3))}
                 slotProps={{ htmlInput: { min: -0.2, max: 0.2, step: 0.001 } }}
                 sx={{ width: 70 }}
               />
@@ -337,10 +347,12 @@ export default function App() {
   }, [selectedFont]);
 
   const [factor, setFactor] = React.useState(2.00);
+  const [factorInput, setFactorInput] = React.useState('2.0');
   const [disableAlign, setDisableAlign] = React.useState(false);
   const [includeXl, setIncludeXl] = React.useState(true);
   const [baseFontSize, setBaseFontSize] = React.useState(12);
   const [modularRatio, setModularRatio] = React.useState(1.20);
+  const [modularRatioInput, setModularRatioInput] = React.useState('1.20');
   const vw = useViewportWidth();
 
   // Font weights for each variant (using default values)
@@ -430,20 +442,26 @@ export default function App() {
                 max={8}
                 step={.1}
                 value={factor}
-                onChange={(_, v) => setFactor(v as number)}
+                onChange={(_, v) => {
+                  const newVal = v as number;
+                  setFactor(newVal);
+                  setFactorInput(newVal.toFixed(1));
+                }}
                 aria-label="factor"
                 sx={{ flex: 1 }}
               />
               <TextField
                 size="small"
                 type="number"
-                value={factor.toFixed(1)}
+                value={factorInput}
                 onChange={(e) => {
+                  setFactorInput(e.target.value);
                   const val = parseFloat(e.target.value);
                   if (!isNaN(val) && val >= 1 && val <= 8) {
                     setFactor(val);
                   }
                 }}
+                onBlur={() => setFactorInput(factor.toFixed(1))}
                 slotProps={{ htmlInput: { min: 1, max: 8, step: 0.1 } }}
                 sx={{ width: 70 }}
               />
@@ -459,20 +477,26 @@ export default function App() {
                 max={2.0}
                 step={0.01}
                 value={modularRatio}
-                onChange={(_, v) => setModularRatio(v as number)}
+                onChange={(_, v) => {
+                  const newVal = v as number;
+                  setModularRatio(newVal);
+                  setModularRatioInput(newVal.toFixed(2));
+                }}
                 aria-label="modular ratio"
                 sx={{ flex: 1 }}
               />
               <TextField
                 size="small"
                 type="number"
-                value={modularRatio.toFixed(2)}
+                value={modularRatioInput}
                 onChange={(e) => {
+                  setModularRatioInput(e.target.value);
                   const val = parseFloat(e.target.value);
                   if (!isNaN(val) && val >= 1.0 && val <= 2.0) {
                     setModularRatio(val);
                   }
                 }}
+                onBlur={() => setModularRatioInput(modularRatio.toFixed(2))}
                 slotProps={{ htmlInput: { min: 1.0, max: 2.0, step: 0.01 } }}
                 sx={{ width: 70 }}
               />
