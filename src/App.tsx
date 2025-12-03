@@ -298,8 +298,8 @@ function VariantRow({
             </Typography>
             <Stack direction="row" spacing={1} alignItems="center">
               <Slider
-                min={-0.2}
-                max={0.2}
+                min={-2.00}
+                max={2.00}
                 step={0.001}
                 value={letterSpacing}
                 onChange={(_, v) => onLetterSpacingChange(v as number)}
