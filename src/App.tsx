@@ -294,7 +294,7 @@ function VariantRow({
           </FormControl>
           <Box>
             <Typography variant="caption" color="text.secondary" sx={{ fontSize: '10px' }}>
-              Letter Spacing
+              Letter Spacing (px)
             </Typography>
             <Stack direction="row" spacing={1} alignItems="center">
               <Slider
