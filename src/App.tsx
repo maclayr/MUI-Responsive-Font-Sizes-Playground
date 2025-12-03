@@ -66,7 +66,7 @@ function buildBaseTheme(
           root: {
             fontSize: '1rem',
             fontWeight: fontWeights.label ?? 500,
-            letterSpacing: `${letterSpacings.label ?? 0.00938}em`,
+            letterSpacing: `${letterSpacings.label ?? 0.00938}px`,
             lineHeight: 1.4375,
           },
         },
@@ -76,22 +76,22 @@ function buildBaseTheme(
       htmlFontSize: baseFontSize,
       fontFamily: selectedFont,
       // Body
-      body1: { fontSize: '14px', lineHeight: 1.6, fontWeight: fontWeights.body1 ?? 400, letterSpacing: `${letterSpacings.body1 ?? 0}em` },
-      body2: { fontSize: '12px', lineHeight: 1.6, fontWeight: fontWeights.body2 ?? 400, letterSpacing: `${letterSpacings.body2 ?? 0}em` },
+      body1: { fontSize: '14px', lineHeight: 1.6, fontWeight: fontWeights.body1 ?? 400, letterSpacing: `${letterSpacings.body1 ?? 0}px` },
+      body2: { fontSize: '12px', lineHeight: 1.6, fontWeight: fontWeights.body2 ?? 400, letterSpacing: `${letterSpacings.body2 ?? 0}px` },
       // Headings via modular scale
-      subtitle1: { fontSize: `${Math.pow(modularRatio, 0)}rem`, fontWeight: fontWeights.subtitle1 ?? 500, lineHeight: 1.4, letterSpacing: `${letterSpacings.subtitle1 ?? 0.009}em`},
-      subtitle2: { fontSize: `${Math.pow(modularRatio, 1)}rem`, fontWeight: fontWeights.subtitle2 ?? 500, lineHeight: 1.33, letterSpacing: `${letterSpacings.subtitle2 ?? 0.006}em` },
-      h6: { fontSize: `${1 * modularRatio}rem`, fontWeight: fontWeights.h6 ?? 600, lineHeight: 1.3, letterSpacing: `${letterSpacings.h6 ?? 0.009}em` },
-      h5: { fontSize: `${Math.pow(modularRatio, 2)}rem`, fontWeight: fontWeights.h5 ?? 700, lineHeight: 1.25, letterSpacing: `${letterSpacings.h5 ?? 0}em` },
-      h4: { fontSize: `${Math.pow(modularRatio, 3)}rem`, fontWeight: fontWeights.h4 ?? 600, lineHeight: 1.2, letterSpacing: `${letterSpacings.h4 ?? 0.016}em` },
-      h3: { fontSize: `${Math.pow(modularRatio, 4)}rem`, fontWeight: fontWeights.h3 ?? 700, lineHeight: 1.15, letterSpacing: `${letterSpacings.h3 ?? 0}em` },
-      h2: { fontSize: `${Math.pow(modularRatio, 5)}rem`, fontWeight: fontWeights.h2 ?? 600, lineHeight: 1.1, letterSpacing: `${letterSpacings.h2 ?? -0.031}em` },
-      h1: { fontSize: `${Math.pow(modularRatio, 6)}rem`, fontWeight: fontWeights.h1 ?? 600, lineHeight: 1.05, letterSpacing: `${letterSpacings.h1 ?? -0.094}em` },
+      subtitle1: { fontSize: `${Math.pow(modularRatio, 0)}rem`, fontWeight: fontWeights.subtitle1 ?? 500, lineHeight: 1.4, letterSpacing: `${letterSpacings.subtitle1 ?? 0.009}px`},
+      subtitle2: { fontSize: `${Math.pow(modularRatio, 1)}rem`, fontWeight: fontWeights.subtitle2 ?? 500, lineHeight: 1.33, letterSpacing: `${letterSpacings.subtitle2 ?? 0.006}px` },
+      h6: { fontSize: `${1 * modularRatio}rem`, fontWeight: fontWeights.h6 ?? 600, lineHeight: 1.3, letterSpacing: `${letterSpacings.h6 ?? 0.009}px` },
+      h5: { fontSize: `${Math.pow(modularRatio, 2)}rem`, fontWeight: fontWeights.h5 ?? 700, lineHeight: 1.25, letterSpacing: `${letterSpacings.h5 ?? 0}px` },
+      h4: { fontSize: `${Math.pow(modularRatio, 3)}rem`, fontWeight: fontWeights.h4 ?? 600, lineHeight: 1.2, letterSpacing: `${letterSpacings.h4 ?? 0.016}px` },
+      h3: { fontSize: `${Math.pow(modularRatio, 4)}rem`, fontWeight: fontWeights.h3 ?? 700, lineHeight: 1.15, letterSpacing: `${letterSpacings.h3 ?? 0}px` },
+      h2: { fontSize: `${Math.pow(modularRatio, 5)}rem`, fontWeight: fontWeights.h2 ?? 600, lineHeight: 1.1, letterSpacing: `${letterSpacings.h2 ?? -0.031}px` },
+      h1: { fontSize: `${Math.pow(modularRatio, 6)}rem`, fontWeight: fontWeights.h1 ?? 600, lineHeight: 1.05, letterSpacing: `${letterSpacings.h1 ?? -0.094}px` },
       // Labels
-      button: { fontSize: '1rem', fontWeight: fontWeights.button ?? 500, letterSpacing: `${letterSpacings.button ?? 0.02}em`, textTransform: 'none', lineHeight: 1.2 },
-      caption: { fontSize: `${0.75}rem`, lineHeight: 1.4, letterSpacing: `${letterSpacings.caption ?? 0.01}em`, fontWeight: fontWeights.caption ?? 400 },
-      overline: { fontSize: `${0.75}rem`, fontWeight: fontWeights.overline ?? 600, letterSpacing: `${letterSpacings.overline ?? 0.08}em`, textTransform: 'uppercase', lineHeight: 1.4 },
-      label: { fontSize: '1rem', fontWeight: fontWeights.label ?? 500, letterSpacing: `${letterSpacings.label ?? 0.00938}em`, lineHeight: 1.4375 },
+      button: { fontSize: '1rem', fontWeight: fontWeights.button ?? 500, letterSpacing: `${letterSpacings.button ?? 0.02}px`, textTransform: 'none', lineHeight: 1.2 },
+      caption: { fontSize: `${0.75}rem`, lineHeight: 1.4, letterSpacing: `${letterSpacings.caption ?? 0.01}px`, fontWeight: fontWeights.caption ?? 400 },
+      overline: { fontSize: `${0.75}rem`, fontWeight: fontWeights.overline ?? 600, letterSpacing: `${letterSpacings.overline ?? 0.08}px`, textTransform: 'uppercase', lineHeight: 1.4 },
+      label: { fontSize: '1rem', fontWeight: fontWeights.label ?? 500, letterSpacing: `${letterSpacings.label ?? 0.00938}px`, lineHeight: 1.4375 },
     },
   });
 }
@@ -242,7 +242,7 @@ function VariantRow({
         <Box sx={{ width: 12 }} />
         <Box sx={{ flex: 1, minWidth: 180 }}>
           <Typography variant="caption" color="text.secondary" sx={{ fontSize: '10px' }}>
-            Letter Spacing
+            Letter Spacing (px)
           </Typography>
           <Stack direction="row" spacing={1} alignItems="center">
             <Slider
