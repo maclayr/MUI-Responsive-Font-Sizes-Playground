@@ -292,9 +292,7 @@ export default function App() {
   const fonts: Record<string, string> = {
     'IBM Plex Sans':
       '"IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-    Inter: '"Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
     Poppins: '"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-    Roboto: '"Roboto", "Helvetica Neue", Arial, sans-serif',
     System: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   };
 
@@ -465,6 +463,8 @@ export default function App() {
                       .
                     </>
                   }
+                  enterTouchDelay={0}
+                  leaveTouchDelay={3000}
                 >
                   <Box
                     component="span"
@@ -501,6 +501,8 @@ export default function App() {
                   title={
                     "When enabled, responsive font sizes will also adjust at the 'xl' breakpoint (≥1920px). When disabled, sizes above 'lg' stay unchanged."
                   }
+                  enterTouchDelay={0}
+                  leaveTouchDelay={3000}
                 >
                   <Box
                     component="span"
@@ -531,7 +533,7 @@ export default function App() {
 
         <Divider sx={{ my: 3 }} />
 
-        <Stack spacing={{xs: 4, md: 2}}>
+        <Stack spacing={{xs: 3, md: 2}}>
           {/* Header Row */}
           <Stack direction="row" alignItems="center" spacing={2} sx={{ pb: 1, display: { xs: 'none', lg: 'flex' } }}>
             <Box sx={{ width: 100 }}>
